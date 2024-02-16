@@ -1,131 +1,143 @@
 const convertButton = document.querySelector(".convert-button")
-const currencySelect = document.querySelector(".currency-select")
+const currencySelectPara = document.querySelector(".currency-select")
 const cleanButton = document.querySelector(".clean-button")
-const selectConverter = document.querySelector(".select-convert")
-
-
-function convertValuesDe() {
-    const inputCurrencyValueDe = document.querySelector(".input-currency").value
-    const currencyValueToConvertDe = document.querySelector(".currency-value-to-convert")
-    /*const currencyValueConvertedDe = document.querySelector(".currency-value")*/
-
-    if (selectConverter.value == "real") {
-        currencyValueToConvertDe.innerHTML = new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL"
-        }).format(inputCurrencyValueDe)
-    }
-
-    if (selectConverter.value == "dolar") {
-        currencyValueToConvertDe.innerHTML = new Intl.NumberFormat("es-US", {
-            style: "currency",
-            currency: "USD"
-        }).format(inputCurrencyValueDe)
-    }
-
-    if (selectConverter.value == "euro") {
-        currencyValueToConvertDe.innerHTML = new Intl.NumberFormat("de-DE", {
-            style: "currency",
-            currency: "EUR"
-        }).format(inputCurrencyValueDe)
-    }
-
-}
+const selectConverterDe = document.querySelector(".select-convert")
 
 function convertValues() {
     const inputCurrencyValue = document.querySelector(".input-currency").value
-    /*const currencyValueToConvert = document.querySelector(".currency-value-to-convert")*/
+    const currencyValueToConvert = document.querySelector(".currency-value-to-convert")
     const currencyValueConverted = document.querySelector(".currency-value")
+    const inputCurrenyMoney = document.querySelector(".input-currency").value
 
-    const dolarToday = 5.20
-    const euroToday = 6.20
-    const realToday = 1.00
+    const realDolar = inputCurrenyMoney / 4.97
+    const realEuro = inputCurrenyMoney / 5.36
+    const realLibra = inputCurrenyMoney / 6.26
+    const realPesoA = inputCurrenyMoney / 0.006
+    const realIene = inputCurrenyMoney / 0.033
+    /*const dolarEuro = inputCurrenyMoney / 1.08
+    const euroDolar = inputCurrenyMoney / 0.93
+    const dolarReal = inputCurrenyMoney * 4.97*/
+    
 
-    if (currencySelect.value == "dolar") {
+    /*PARTE DE CONVERTER DE*/
+
+    if (selectConverterDe.value == "real") {
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(inputCurrencyValue)
+    }
+
+    /*if (selectConverterDe.value == "dolar") {
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("es-US", {
+            style: "currency",
+            currency: "USD"
+        }).format(0)
+    }
+
+    if (selectConverterDe.value == "euro") {
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "EUR"
+        }).format(0)
+    }*/ 
+
+
+    /*PARTE DE CONVERTER PARA*/
+
+    if (currencySelectPara.value == "dolar-americano") {
         currencyValueConverted.innerHTML = new Intl.NumberFormat("es-US", {
             style: "currency",
             currency: "USD"
-        }).format(inputCurrencyValue / dolarToday)
+        }).format(realDolar)
     }
 
-    if (currencySelect.value == "euro") {
+    if (currencySelectPara.value == "euro") {
         currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR"
-        }).format(inputCurrencyValue / euroToday)
+        }).format(realEuro)
     }
 
-    if (currencySelect.value == "real") {
-        currencyValueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+    if (currencySelectPara.value == "libra-esterlina") {
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
             style: "currency",
-            currency: "BRL"
-        }).format(inputCurrencyValue * realToday)
+            currency: "GBP"
+        }).format(realLibra)
     }
 
-    /*currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-    }).format(inputCurrencyValue)*/
+    if (currencySelectPara.value == "peso-argentino") {
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("es-AR", {
+            style: "currency",
+            currency: "ARS"
+        }).format(realPesoA)
+    }
 
+    if (currencySelectPara.value == "iene") {
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("ja-JP", {
+            style: "currency",
+            currency: "JPY"
+        }).format(realIene)
+    }
 }
 
 function changeCurrencyDe() {
-    const currencyConverter = document.getElementById("currency-converter")
-    const currencyImgConverter = document.querySelector(".currency-img-converter")
+    const currencyNameDe = document.getElementById("currency-converter")
+    const currencyImgDe = document.querySelector(".currency-img-converter")
 
-    if (selectConverter.value == "dolar") {
-        currencyConverter.innerHTML = "Dólar Americano"
-        currencyImgConverter.src = "./assets/dolar.png"
+    if (selectConverterDe.value == "dolar") {
+        currencyNameDe.innerHTML = "Dólar Americano"
+        currencyImgDe.src = "./assets/dolar.png"
     }
-    if (selectConverter.value == "euro") {
-        currencyConverter.innerHTML = "Euro"
-        currencyImgConverter.src = "./assets/euro.png"
+    if (selectConverterDe.value == "euro") {
+        currencyNameDe.innerHTML = "Euro"
+        currencyImgDe.src = "./assets/euro.png"
     }
-    if (selectConverter.value == "real") {
-        currencyConverter.innerHTML = "Real"
-        currencyImgConverter.src = "./assets/real.png"
+    if (selectConverterDe.value == "real") {
+        currencyNameDe.innerHTML = "Real"
+        currencyImgDe.src = "./assets/real.png"
     }
 
-    convertValuesDe()
+    convertValues()
+
 }
+
 
 function changeCurrency() {
     const currencyName = document.getElementById("currency-name")
     const currencyImg = document.querySelector(".currency-img")
 
-    if (currencySelect.value == "dolar") {
+    if (currencySelectPara.value == "dolar-americano") {
         currencyName.innerHTML = "Dólar Americano"
         currencyImg.src = "./assets/dolar.png"
     }
-    if (currencySelect.value == "euro") {
+    if (currencySelectPara.value == "euro") {
         currencyName.innerHTML = "Euro"
         currencyImg.src = "./assets/euro.png"
     }
-    if (currencySelect.value == "real") {
+    if (currencySelectPara.value == "real") {
         currencyName.innerHTML = "Real"
         currencyImg.src = "./assets/real.png"
+    }
+    if (currencySelectPara.value == "libra-esterlina") {
+        currencyName.innerHTML = "Libra Esterlina"
+        currencyImg.src = "./assets/libraE.png"
+    }
+    if (currencySelectPara.value == "peso-argentino") {
+        currencyName.innerHTML = "Peso Argentino"
+        currencyImg.src = "./assets/pesoA.png"
+    }
+    if (currencySelectPara.value == "iene") {
+        currencyName.innerHTML = "Iene Japonês"
+        currencyImg.src = "./assets/iene.png"
     }
 
     convertValues()
 }
 
-/*function cleanForm() {
 
-    document.getElementById("input-clean").value = ""
+selectConverterDe.addEventListener("change", changeCurrencyDe)
+currencySelectPara.addEventListener("change", changeCurrency)
+convertButton.addEventListener("click", convertValues, currencySelectPara)
 
-    if (currencySelect.value == "dolar") {
-        document.getElementById("select-convert-para").innerHTML = "US$ 0,00"
-    }
-    if (currencySelect.value == "euro") {
-        document.getElementById("select-convert-para").innerHTML = "0,00 €"
-    }
 
-    document.getElementById("select-convert-de").innerHTML = "R$ 0,00"
-    document.getElementById("input-clean").focus()
-
-}*/
-
-selectConverter.addEventListener("change", changeCurrencyDe)
-currencySelect.addEventListener("change", changeCurrency)
-convertButton.addEventListener("click", convertValues, convertValuesDe, currencySelect)
-cleanButton.addEventListener("click", cleanForm)
