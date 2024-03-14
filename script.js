@@ -29,7 +29,16 @@ function convertValues() {
     const libraIene = inputCurrenyMoney * 189.01
     const libraEuro = inputCurrenyMoney * 1.17
     const libraReal = inputCurrenyMoney * 6.36
-
+    const pesoReal = inputCurrenyMoney * 0.0059
+    const pesoDolar = inputCurrenyMoney * 0.0012
+    const pesoEuro = inputCurrenyMoney * 0.0011
+    const pesoLibra = inputCurrenyMoney * 0.00092
+    const pesoIene = inputCurrenyMoney * 0.17
+    const ieneReal = inputCurrenyMoney * 0.034
+    const ieneDolar = inputCurrenyMoney * 0.0067
+    const ieneEuro = inputCurrenyMoney * 0.0062
+    const ienelibra = inputCurrenyMoney * 0.0053
+    const ienePeso = inputCurrenyMoney * 5.74
 
     /*Erro duplicidade de valor*/
 
@@ -285,7 +294,129 @@ function convertValues() {
         }).format(libraReal)
     }
 
+    // Peso Argentino
 
+    if (selectConverterDe.value === "peso-argentino" && currencySelectPara.value == "dolar-americano") {
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("es-AR", {
+            style: "currency",
+            currency: "ARS"
+        }).format(inputCurrencyValue)
+
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("es-US", {
+            style: "currency",
+            currency: "USD"
+        }).format(pesoDolar)
+    }
+
+    if (selectConverterDe.value === "peso-argentino" && currencySelectPara.value == "euro") {
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("es-AR", {
+            style: "currency",
+            currency: "ARS"
+        }).format(inputCurrencyValue)
+
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "EUR"
+        }).format(pesoEuro)
+    }
+
+    if (selectConverterDe.value === "peso-argentino" && currencySelectPara.value == "libra-esterlina") {
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("es-AR", {
+            style: "currency",
+            currency: "ARS"
+        }).format(inputCurrencyValue)
+
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
+            style: "currency",
+            currency: "GBP"
+        }).format(pesoLibra)
+    }
+
+    if (selectConverterDe.value === "peso-argentino" && currencySelectPara.value == "iene") {
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("es-AR", {
+            style: "currency",
+            currency: "ARS"
+        }).format(inputCurrencyValue)
+
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("ja-JP", {
+            style: "currency",
+            currency: "JPY"
+        }).format(pesoIene)
+    }
+
+    if (selectConverterDe.value === "peso-argentino" && currencySelectPara.value == "real") {
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("es-AR", {
+            style: "currency",
+            currency: "ARS"
+        }).format(inputCurrencyValue)
+
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(pesoReal)
+    }
+
+    // Iene Japonês
+
+    if (selectConverterDe.value === "iene" && currencySelectPara.value == "dolar-americano") {
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("ja-JP", {
+            style: "currency",
+            currency: "JPY"
+        }).format(inputCurrencyValue)
+
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("es-US", {
+            style: "currency",
+            currency: "USD"
+        }).format(ieneDolar)
+    }
+
+    if (selectConverterDe.value === "iene" && currencySelectPara.value == "euro") {
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("ja-JP", {
+            style: "currency",
+            currency: "JPY"
+        }).format(inputCurrencyValue)
+
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "EUR"
+        }).format(ieneEuro)
+    }
+
+    if (selectConverterDe.value === "iene" && currencySelectPara.value == "libra-esterlina") {
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("ja-JP", {
+            style: "currency",
+            currency: "JPY"
+        }).format(inputCurrencyValue)
+
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
+            style: "currency",
+            currency: "GBP"
+        }).format(ienelibra)
+    }
+
+    if (selectConverterDe.value === "iene" && currencySelectPara.value == "peso-argentino") {
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("ja-JP", {
+            style: "currency",
+            currency: "JPY"
+        }).format(inputCurrencyValue)
+
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("es-AR", {
+            style: "currency",
+            currency: "ARS"
+        }).format(ienePeso)
+    }
+
+    if (selectConverterDe.value === "iene" && currencySelectPara.value == "real") {
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("ja-JP", {
+            style: "currency",
+            currency: "JPY"
+        }).format(inputCurrencyValue)
+
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(ieneReal)
+    }
 
 }
 
@@ -352,7 +483,7 @@ function convertValues() {
             currencyImg.src = "./assets/iene.png"
         }
 
-        // convertValues()
+        convertValues()
     }
 
     function cleanForm() {
