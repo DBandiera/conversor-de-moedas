@@ -8,37 +8,43 @@
 
 body {
     background-color: #8A51FC;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .logo {
-    width: 300px;
+    width: 150px;
+    height: 150px;
     display: block;
-    margin-left: auto;
-    margin: 20px auto;
+    margin: 0 0 5px 0;
 }
 
 main {
-    width: 375px;
+    width: 355px;
+    height: 80%;
     background: #F4F4F4;
     border-radius: 20px;
     margin: 0 auto;
     padding: 44px 24px 23px;
+    align-items: baseline;
 }
 
 label {
-    color: #777777;
+    color: rgba(119 119 119 0.5);
     font-weight: 400;
     font-size: 14px;
 }
 
 select,
 input {
-    background: #FFFFFF;
     border: 1px solid #BBBBBB;
     border-radius: 4px;
     height: 48px;
     width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 10px;
     appearance: none;
     padding-left: 18px;
     font-weight: 700;
@@ -47,8 +53,13 @@ input {
     cursor: pointer;
 }
 
+select{
+    background-color: rgba(119, 119, 119, 0.8);
+    color: #FFFFFF;
+}
+
 .clean-button {
-    margin-bottom: 24px;
+    margin: 0 0 10px 0;
 }
 
 button {
@@ -56,7 +67,7 @@ button {
     border-radius: 5px;
     width: 100%;
     border: none;
-    height: 48px;
+    height: 43px;
     color: #FFFFFF;
     font-weight: 700;
     font-size: 18px;
@@ -72,25 +83,27 @@ button:active {
 }
 
 section {
+    height: 46%;
     border: 1px solid #772FD3;
     border-radius: 20px;
-    margin-top: 36px;
-    padding: 12px;
+    margin-top: 12px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 
 .arrow-img {
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
 .currency-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 1px;
 }
 
 .currency {
@@ -108,3 +121,9 @@ section {
     width: 52px;
     height: 52px;
 }
+
+.currency-img-converter {
+    width: 52px;
+    height: 52px;
+}
+
